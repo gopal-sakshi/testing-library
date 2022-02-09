@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Notification12Component } from './components/notification12/notification12.component';
 import { Notification13Component } from './components/notification13/notification13.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { some_injection_token } from './public-api';
 
 
 
@@ -29,4 +30,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     Notification13Component
   ]
 })
-export class Messages12Module { }
+export class Messages12Module { 
+  static jingChak(config:any):ModuleWithProviders<any> {
+
+    return {
+      ngModule: Messages12Module,
+      providers: [
+        {
+          provide: some_injection_token,
+          useValue: config
+        }
+      ]
+    };
+  }
+}
