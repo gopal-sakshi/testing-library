@@ -25,7 +25,11 @@
       "testing-library": [
         "dist/testing-library/testing-library",
         "dist/testing-library"
-      ]
+        // "projects/testing-library"
+      ],
+      // "testing-library/*" :[
+      //   "projects/testing-library/*"
+      // ]
     }
   },
   "angularCompilerOptions": {
