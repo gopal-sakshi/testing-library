@@ -10,7 +10,7 @@ export class Notification12Component implements OnInit {
 
   @Input() message:string;
   @Input() duration:number;
-  constructor(private _snackBar: MatSnackBar) { 
+  constructor(private _snackBar: MatSnackBar) {
     this.message = '';
     this.duration = 3000;
   }
@@ -21,7 +21,25 @@ export class Notification12Component implements OnInit {
   ngOnChanges() {
     if(this.message) {
       console.log(this.message);
-      this._snackBar.open(this.message, '', {duration: 3000})
+      const snackbarRef = this._snackBar.open(this.message, 'info', {
+        //duration: 10000,
+        panelClass: 'library-snackbar-class',
+        horizontalPosition: 'left',
+        verticalPosition: 'bottom'
+      });
+      snackbarRef.afterOpened().pipe().subscribe(res => {
+        console.log('snackbar opened');
+      });
+      snackbarRef._dismissAfter(10000);
+      snackbarRef.afterDismissed().pipe().subscribe(res => {
+        console.log('snackbar dismissed');
+      }, err => {
+        console.log('couldnt dismiss snackbar');
+      }, () => {
+        console.log('snackbar observable completed...');
+      })
+
+
     }
   }
 

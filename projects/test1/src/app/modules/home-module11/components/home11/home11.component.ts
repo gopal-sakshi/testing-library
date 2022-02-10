@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { LibNotification12, some_injection_token } from 'testing-library';
 
 @Component({
@@ -9,6 +10,7 @@ import { LibNotification12, some_injection_token } from 'testing-library';
 export class Home11Component implements OnInit {
 
   constructor(
+    private route:ActivatedRoute,
     @Inject(some_injection_token) private blah1:LibNotification12,
     // @Inject(some_injection_token) private blah2:any
   ) { }
@@ -17,6 +19,10 @@ export class Home11Component implements OnInit {
     console.log('vachaaa');
     this.blah1.printAge();
     this.blah1.printName();
+
+    this.route.data.subscribe(res => {
+      console.log(res);
+    })
   }
 
 }
