@@ -10,6 +10,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SomeResolver13 } from './classes/some-resolver13';
 import { Home11Component } from './components/home11/home11.component';
 import { Home12Component } from './components/home12/home12.component';
+import { config25 } from '../../config/config-files';
+import { ForwardRef12Component } from './components/forward-ref12/forward-ref12.component';
+import { FactoryRef1 } from './services/factory-ref1';
+import { FactoryRef2 } from './services/factory-ref2';
+
 
 // import { AppNotification12 } from './classes/app-notification12';
 
@@ -17,12 +22,13 @@ import { Home12Component } from './components/home12/home12.component';
 @NgModule({
   declarations: [
     Home11Component,
-    Home12Component
+    Home12Component,
+    ForwardRef12Component
   ],
   imports: [
     CommonModule,
     HomeModule11RoutingModule,
-    Messages12Module,
+    Messages12Module.forChild(config25.notification),
     FlexLayoutModule,
     TestingLibraryModule
   ],
@@ -39,7 +45,8 @@ import { Home12Component } from './components/home12/home12.component';
       // useClass: AppNotification12
     }
     */
-
+    FactoryRef1,
+    FactoryRef2
   ]
 })
 export class HomeModule11Module { }

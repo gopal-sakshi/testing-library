@@ -5,8 +5,9 @@ import { PlayersComponent } from './components/players/players.component';
 import { FootballHomeComponent } from './components/football-home/football-home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { Routes, RouterModule } from '@angular/router';
-import { Utilities12Module } from 'testing-library';
+import { Messages12Module, Utilities12Module } from 'testing-library';
 import { MatButtonModule } from '@angular/material/button';
+import { config26 } from '../../config/config-files';
 
 
 const footballRoutes:Routes = [
@@ -32,6 +33,7 @@ const footballRoutes:Routes = [
     FlexLayoutModule,
     Utilities12Module,
     MatButtonModule,
+    Messages12Module.forChild(config26.notification),
   ]
 })
 export class FootballModule { }

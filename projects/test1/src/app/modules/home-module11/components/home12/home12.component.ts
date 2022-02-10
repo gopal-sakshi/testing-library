@@ -13,7 +13,7 @@ export class Home12Component implements OnInit {
   constructor() {
     this.duration = 5000;
     this.messageFor12 = '12 comp';
-    this.messageFor13 = '13 comp';
+    this.messageFor13 = 'message from home11 module';
    }
 
   ngOnInit(): void {

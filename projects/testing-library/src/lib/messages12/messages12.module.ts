@@ -4,7 +4,7 @@ import { Notification12Component } from './components/notification12/notificatio
 import { Notification13Component } from './components/notification13/notification13.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { some_injection_token } from './public-api';
+import { injection_token2, some_injection_token } from './public-api';
 
 
 
@@ -31,13 +31,18 @@ import { some_injection_token } from './public-api';
   ]
 })
 export class Messages12Module { 
-  static jingChak(config:any):ModuleWithProviders<any> {
+  static forChild(config:any):ModuleWithProviders<Messages12Module> {
+  //static forChild(config:any):ModuleWithProviders<any> {
 
     return {
       ngModule: Messages12Module,
       providers: [
+        // {
+        //   provide: some_injection_token,
+        //   useValue: config
+        // },
         {
-          provide: some_injection_token,
+          provide: injection_token2,
           useValue: config
         }
       ]

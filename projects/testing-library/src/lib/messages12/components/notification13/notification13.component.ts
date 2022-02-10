@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
+import { injection_token2 } from '../../public-api';
 
 @Component({
   selector: 'lib-notification13',
@@ -8,11 +9,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class Notification13Component implements OnInit {
 
   @Input() message:string;
-  constructor() { 
+  constructor(
+    @Inject(injection_token2) public token2:any
+  ) { 
     this.message='';
   }
 
   ngOnInit(): void {
+    console.log(this.token2);
   }
 
 }

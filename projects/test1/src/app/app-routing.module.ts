@@ -1,8 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { Empty12Component } from './empty12.component';
+
 import { SomeResolver12 } from './modules/home-module11/classes/some-resolver12';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: Empty12Component
+  },
   {
     path: 'home',
     loadChildren: () => import('./modules/home-module11/home11.module').then(m => m.HomeModule11Module),

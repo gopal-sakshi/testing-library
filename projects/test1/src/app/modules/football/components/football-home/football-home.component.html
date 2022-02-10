@@ -2,6 +2,7 @@
     <div class="header">
         <h3>Football home anta </h3>
     </div>
+    <lib-notification13 [message]="'message from fooball module'"></lib-notification13>
     <div class="user-options" fxLayout="row" fxLayoutGap="20px">
         <button mat-raised-button color="primary" (click)="toggleClubs()">toggle clubs</button>
         <button mat-raised-button color="primary" (click)="togglePlayers()">toggle players</button>
@@ -12,7 +13,6 @@
         </div>
         <div *ngIf="showPlayers">
             <app-players></app-players>
-        </div>
-        
+        </div>        
     </div>
 </div>

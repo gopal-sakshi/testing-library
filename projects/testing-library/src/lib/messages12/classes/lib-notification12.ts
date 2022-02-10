@@ -34,3 +34,4 @@ export class LibNotification12 {
 }
 
 export const some_injection_token = new InjectionToken<LibNotification12>('some_injection_token');
+export const injection_token2 = new InjectionToken<any>('injection_token2')
