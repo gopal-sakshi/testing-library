@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { config24 } from './config/config24';
 import { SomeResolver12 } from './modules/home-module11/classes/some-resolver12';
+import { LibNotification12, some_injection_token } from 'testing-library';
+import { AppNotification12 } from './modules/home-module11/classes/app-notification12';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,12 @@ import { SomeResolver12 } from './modules/home-module11/classes/some-resolver12'
     // Messages12Module
   ],
   providers: [
-    SomeResolver12
+    SomeResolver12,
+    {
+      provide: some_injection_token,
+      // useClass: LibNotification12,
+      useClass: AppNotification12
+    }
   ],
   bootstrap: [AppComponent]
 })

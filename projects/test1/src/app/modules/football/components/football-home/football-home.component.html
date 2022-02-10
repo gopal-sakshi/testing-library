@@ -1,0 +1,18 @@
+<div class="football-home-container" fxLayout='column' fxLayoutGap="20px">
+    <div class="header">
+        <h3>Football home anta </h3>
+    </div>
+    <div class="user-options" fxLayout="row" fxLayoutGap="20px">
+        <button mat-raised-button color="primary" (click)="toggleClubs()">toggle clubs</button>
+        <button mat-raised-button color="primary" (click)="togglePlayers()">toggle players</button>
+    </div>
+    <div class="main-content" fxLayout="column">
+        <div *ngIf="showClubs">
+            <app-clubs [footballClubs]="footballClubs"></app-clubs>
+        </div>
+        <div *ngIf="showPlayers">
+            <app-players></app-players>
+        </div>
+        
+    </div>
+</div>

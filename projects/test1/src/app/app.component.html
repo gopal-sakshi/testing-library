@@ -1,7 +1,14 @@
-<div class="app-container" fxLayout="row" fxLayoutGap="20px">
-  <a [routerLink]="['home']"> Home </a>
-  <a [routerLink]="['animals']"> Animals </a>
+<div class="app-container">
+  <div class="navigation-links" fxLayout="row" fxLayoutGap="20px">
+    <a [routerLink]="['home']"> Home </a>
+    <a [routerLink]="['animals']"> Animals </a>
+    <a [routerLink]="['football']"> Football </a>
+  </div>
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>  
 </div>
+
 <!-- <div fxLayout="column" fxLayoutGap="20px">
 </div> -->
-<router-outlet></router-outlet>
+

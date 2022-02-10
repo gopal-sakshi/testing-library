@@ -16,7 +16,14 @@ const routes: Routes = [
     // loadChildren: () => import('./modules/animals12/animals12.module')
       // not using .then(m=>m.Animals12Module) gives this error
       // Error: ASSERTION ERROR: NgModule '[object Module]' is not a subtype of 'NgModuleType'. [Expected=> null != null <=Actual]
-  }
+  },
+  {
+    path: 'football',
+    loadChildren: () => import('./modules/football/football.module').then(m=>m.FootballModule)
+    // loadChildren: () => import('./modules/animals12/animals12.module')
+      // not using .then(m=>m.Animals12Module) gives this error
+      // Error: ASSERTION ERROR: NgModule '[object Module]' is not a subtype of 'NgModuleType'. [Expected=> null != null <=Actual]
+  },
 ];
 
 @NgModule({
