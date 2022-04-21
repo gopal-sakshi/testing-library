@@ -1,5 +1,6 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { injection_token2 } from '../../public-api';
+import { injection_token2 } from '../../classes/lib-notification12';
+
 
 @Component({
   selector: 'lib-notification13',

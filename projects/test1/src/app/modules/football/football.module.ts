@@ -5,9 +5,9 @@ import { PlayersComponent } from './components/players/players.component';
 import { FootballHomeComponent } from './components/football-home/football-home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { Routes, RouterModule } from '@angular/router';
-import { Messages12Module, Utilities12Module } from 'testing-library';
 import { MatButtonModule } from '@angular/material/button';
 import { config26 } from '../../config/config-files';
+import { Messages12Module, Utilities12Module } from 'projects/testing-library';
 
 
 const footballRoutes:Routes = [

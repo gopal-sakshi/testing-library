@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { HomeModule11RoutingModule } from './home11-routing.module';
 
-// import { LibNotification12, some_injection_token, Messages12Module, TestingLibraryModule } from 'testing-library';
-import { Messages12Module, TestingLibraryModule } from 'testing-library';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SomeResolver13 } from './classes/some-resolver13';
@@ -14,10 +12,7 @@ import { config25 } from '../../config/config-files';
 import { ForwardRef12Component } from './components/forward-ref12/forward-ref12.component';
 import { FactoryRef1 } from './services/factory-ref1';
 import { FactoryRef2 } from './services/factory-ref2';
-
-
-// import { AppNotification12 } from './classes/app-notification12';
-
+import { LibNotification12, Messages12Module, some_injection_token } from 'testing-library';
 
 @NgModule({
   declarations: [
@@ -29,8 +24,7 @@ import { FactoryRef2 } from './services/factory-ref2';
     CommonModule,
     HomeModule11RoutingModule,
     Messages12Module.forChild(config25.notification),
-    FlexLayoutModule,
-    TestingLibraryModule
+    FlexLayoutModule    
   ],
   providers: [
     SomeResolver13,
@@ -38,13 +32,14 @@ import { FactoryRef2 } from './services/factory-ref2';
      *    Moved these providers (some_injection_token) into app.module.ts 
      *      meaning, services provided at root module (ie app.module.ts)
      *      and not at home11 module level...
-
-    {
-      provide: some_injection_token,
-      useClass: LibNotification12,
-      // useClass: AppNotification12
-    }
     */
+
+    // {
+    //   provide: some_injection_token,
+    //   useClass: LibNotification12,
+    //   // useClass: AppNotification12
+    // },
+    
     FactoryRef1,
     FactoryRef2
   ]

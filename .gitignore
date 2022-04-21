@@ -9,6 +9,13 @@
 
 # dependencies
 /node_modules
+/projects/testing-library/node_modules
+# Read these
+#     https://stackoverflow.com/questions/13668097/how-to-replace-npm-node-module-folder-with-another-folder
+#     https://stackoverflow.com/questions/14742553/how-to-set-custom-location-for-local-installation-of-npm-package
+#     https://stackoverflow.com/questions/20280256/how-to-set-the-default-path-for-node-modules 
+
+
 
 # profiling files
 chrome-profiler-events*.json

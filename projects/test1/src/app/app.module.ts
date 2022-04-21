@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { config24 } from './config/config-files';
 import { SomeResolver12 } from './modules/home-module11/classes/some-resolver12';
-import { LibNotification12, Messages12Module, some_injection_token } from 'testing-library';
 import { AppNotification12 } from './modules/home-module11/classes/app-notification12';
 import { Empty12Component } from './empty12.component';
+import { Messages12Module, some_injection_token } from 'testing-library';
+
 
 @NgModule({
   declarations: [

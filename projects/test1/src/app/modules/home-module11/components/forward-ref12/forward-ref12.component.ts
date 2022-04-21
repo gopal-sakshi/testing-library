@@ -25,6 +25,7 @@ export class ForwardRef12Component implements OnInit {
       console.log(this.heroes);
     });
 
+    // https://stackoverflow.com/questions/50894571/what-does-do-forwardref-in-angular
   }
 
 }

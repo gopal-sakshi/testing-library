@@ -5,6 +5,7 @@ import { Notification13Component } from './components/notification13/notificatio
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { injection_token2, some_injection_token } from './public-api';
+import { RealMadridService } from './services/realMadrid.service';
 
 
 
@@ -19,7 +20,7 @@ import { injection_token2, some_injection_token } from './public-api';
     FlexLayoutModule
   ],
   exports: [
-    Notification12Component,    // I forgot to the components to exports array... 
+    Notification12Component,    // I forgot to add the 'Notification12Component' to exports array... 
                                     // this error tortured me for like 2 hrs... badu
 
     /*
@@ -28,6 +29,9 @@ import { injection_token2, some_injection_token } from './public-api';
       3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
     */                                    
     Notification13Component
+  ],
+  providers: [
+    RealMadridService
   ]
 })
 export class Messages12Module { 
