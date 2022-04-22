@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayersComponent implements OnInit {
 
+  showChelseaPlayers: boolean = false;
+  
   constructor() { }
 
   ngOnInit(): void {

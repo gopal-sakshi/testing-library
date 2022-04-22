@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LibNotification12, some_injection_token } from 'testing-library';
+import { LibNotification12, some_injection_token } from 'projects/testing-library';
 
 @Component({
   selector: 'app-home11',

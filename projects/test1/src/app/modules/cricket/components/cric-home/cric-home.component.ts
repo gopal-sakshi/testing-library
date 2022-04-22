@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class CricHomeComponent implements OnInit {
 
   showSquads: boolean = false;
+  showClubs: boolean = false;
+  showDummy: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {

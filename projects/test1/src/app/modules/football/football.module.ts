@@ -8,6 +8,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { config26 } from '../../config/config-files';
 import { Messages12Module, Utilities12Module } from 'projects/testing-library';
+import { ChelseaModule } from 'gopal612-lib-two';
+
 
 
 const footballRoutes:Routes = [
@@ -34,6 +36,7 @@ const footballRoutes:Routes = [
     Utilities12Module,
     MatButtonModule,
     Messages12Module.forChild(config26.notification),
+    ChelseaModule     // this is from lib-two (which is a package from npmjs)
   ]
 })
 export class FootballModule { }

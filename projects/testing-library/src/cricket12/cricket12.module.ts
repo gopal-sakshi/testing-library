@@ -15,17 +15,18 @@ import { GOP_ENVI } from './classes/cric-tokens';
     CommonModule
   ],
   exports: [
-    SquadCricketComponent
+    SquadCricketComponent,
+    ClubCricketComponent
   ]
 })
 export class Cricket12Module {
-  public jingChakCricket(config:any) : ModuleWithProviders<Cricket12Module> {
+  public static jingChakCricket(config:any) : ModuleWithProviders<Cricket12Module> {
     return {
       ngModule: Cricket12Module,
       providers: [
         {
           provide: GOP_ENVI,
-          useClass: config.envi
+          useClass: config
         }        
       ]
     }

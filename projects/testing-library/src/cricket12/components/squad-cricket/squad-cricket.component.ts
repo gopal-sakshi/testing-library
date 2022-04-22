@@ -19,10 +19,11 @@ export class SquadCricketComponent extends SquadsCricketService implements OnIni
    }
 
   ngOnInit(): void {
+    console.log(this.envi);
   }
 
   addPlayerComp(playerName:string) {
-    console.log(playerName);
+    console.log('jc ',playerName);
     this.addPlayer(playerName);
   }
 

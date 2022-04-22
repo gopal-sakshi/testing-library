@@ -12,7 +12,7 @@ import { config25 } from '../../config/config-files';
 import { ForwardRef12Component } from './components/forward-ref12/forward-ref12.component';
 import { FactoryRef1 } from './services/factory-ref1';
 import { FactoryRef2 } from './services/factory-ref2';
-import { LibNotification12, Messages12Module, some_injection_token } from 'testing-library';
+import { LibNotification12, Messages12Module, some_injection_token } from 'projects/testing-library';
 
 @NgModule({
   declarations: [
