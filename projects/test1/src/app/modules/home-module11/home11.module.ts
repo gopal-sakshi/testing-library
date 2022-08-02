@@ -12,19 +12,22 @@ import { config25 } from '../../config/config-files';
 import { ForwardRef12Component } from './components/forward-ref12/forward-ref12.component';
 import { FactoryRef1 } from './services/factory-ref1';
 import { FactoryRef2 } from './services/factory-ref2';
-import { LibNotification12, Messages12Module, some_injection_token } from 'projects/testing-library';
+import { Image23Module, LibNotification12, Messages12Module, some_injection_token } from 'projects/testing-library';
+import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 
 @NgModule({
   declarations: [
     Home11Component,
     Home12Component,
-    ForwardRef12Component
+    ForwardRef12Component,
+    ImageUploadComponent
   ],
   imports: [
     CommonModule,
     HomeModule11RoutingModule,
     Messages12Module.forChild(config25.notification),
-    FlexLayoutModule    
+    FlexLayoutModule,
+    Image23Module
   ],
   providers: [
     SomeResolver13,

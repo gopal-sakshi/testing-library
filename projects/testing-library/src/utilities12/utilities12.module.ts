@@ -3,12 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ClubAddressComponent } from './components/club-address/club-address.component';
 import { ClubTitlesComponent } from './components/club-titles/club-titles.component';
 
-
-
 @NgModule({
   declarations: [
     ClubAddressComponent,
-    ClubTitlesComponent
+    ClubTitlesComponent    
   ],
   imports: [
     CommonModule

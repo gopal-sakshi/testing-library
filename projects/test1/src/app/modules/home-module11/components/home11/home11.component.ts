@@ -9,6 +9,11 @@ import { LibNotification12, some_injection_token } from 'projects/testing-librar
 })
 export class Home11Component implements OnInit {
 
+  showForwardRef12:boolean = false;
+  showHome12:boolean = false;
+  showStaticText:boolean = false;
+  showImageUpload:boolean = false;
+  
   constructor(
     private route:ActivatedRoute,
     @Inject(some_injection_token) private blah1:LibNotification12,
