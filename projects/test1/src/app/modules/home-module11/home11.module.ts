@@ -14,20 +14,33 @@ import { FactoryRef1 } from './services/factory-ref1';
 import { FactoryRef2 } from './services/factory-ref2';
 import { Image23Module, LibNotification12, Messages12Module, some_injection_token } from 'projects/testing-library';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+import { AppProductsComponent } from './components/app-products/app-products.component';
+import { AppCategoriesComponent } from './components/app-categories/app-categories.component';
+import { HomeComponent } from './components/home/home.component';
+import { ProductsModule } from 'projects/products';
+import { CategoriesModule } from 'projects/categories';
 
 @NgModule({
   declarations: [
     Home11Component,
     Home12Component,
     ForwardRef12Component,
-    ImageUploadComponent
+    ImageUploadComponent,
+    AppProductsComponent,
+    AppCategoriesComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
     HomeModule11RoutingModule,
     Messages12Module.forChild(config25.notification),
     FlexLayoutModule,
-    Image23Module
+    Image23Module,
+
+    // PRODUCT & CATEGORY MODULE
+    ProductsModule,
+    CategoriesModule
+
   ],
   providers: [
     SomeResolver13,

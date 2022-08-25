@@ -1,0 +1,6 @@
+.p-tile-container {
+    /* max-width: fit-content; */
+    border: 1px dotted rgb(137, 137, 228);
+    margin: 5px;
+    padding: 5px;
+}

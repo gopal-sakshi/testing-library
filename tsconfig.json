@@ -21,6 +21,14 @@
       "dom"
     ],
     "paths": {
+      "categories": [
+        "dist/categories/categories",
+        "dist/categories"
+      ],
+      "products": [
+        "dist/products/products",
+        "dist/products"
+      ],
       "testing-library": [
         // "dist/testing-library/testing-library",
         // "dist/testing-library"

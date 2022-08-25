@@ -2,8 +2,7 @@
   
   <div>
     <button (click)="showImageUpload=!showImageUpload">image upload</button>
-    <button (click)="showStaticText=!showStaticText">static text</button>
-    <button (click)="showHome12=!showHome12">home12</button>
+    <button (click)="showStaticText=!showStaticText">static text</button>    
     <button (click)="showForwardRef12=!showForwardRef12">forward ref12</button>
   </div>
 
@@ -16,10 +15,6 @@
     <div class="some-element"> baahubali hero is prabhas </div>
     <div class="some-element"> nayanthara is from kerala </div>
     <div class="some-element"> ours is tollywood </div>
-  </div>
-
-  <div *ngIf= "showHome12" class="another-component">
-    <app-home12></app-home12>
   </div>
 
   <div *ngIf="showForwardRef12" class="another-component">    
