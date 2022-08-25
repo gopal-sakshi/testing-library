@@ -1,20 +1,136 @@
-cleanBuildDirectory() {    
-    rm -rf build
-    echo ""
+log() {
+  printf "\n\e[1;37;32m[INFO]\e[0;97;49m $1"
+    #       \n ===> print in new line
+    #       \e[1;37;32m[INFO]\e[    ----> print INFO in green color may be
 }
+
+pushNotification() {
+    # It seems there is not much difference between push notification & log()
+    printf "\n\e[1;37;32m[INFO]\e[0;97;49m $1"
+}
+
+testUtilityFunctions() {
+    log "log starts... argument ===> $1"
+    pushNotification "push notification starts ===> $1" 
+}
+
+cleanBuildDirectory() {
+    rm -rf build
+    echo    # this blank echo ===> so that command gets printed in next line
+    echo "build cleaned re"
+}
+
+## --------------------------------- ################### -------------------------------------------- ##############
+
+updateVersion() {
+    cd "projects/$1" &&                         # we will navigate into "projects/categories" folder
+                                                    # next iteration we will navigate into "projects/products" folder
+                                                    # co-incidentally... it contains package.json...
+                                                    # if you do npm version (or) npm version 1.2.32 ----> 
+                                                    # it increments/updates the version in package.json accordingly
+                                                    # if you want to verify... directly open categories folder in terminal & do "npm version"
+                                                    # how come $2 ===> minorv0.4.0 ====> even though we did not pass any argument
+    log "this is what is argument 2 ===> $2"                                                    
+    npm version $2 &&
+    cd ../../
+    if [ $? != 0 ]; then
+        logError "Unable to update '$library' package version "
+        return 1
+    fi
+    return 0
+}
+
+verifyVersion() {
+    success=0
+    case $1 in
+        major)
+        log "This is MAJOR ===> $1"
+        echo "--- so, we will not modify success to 1"
+        ;;
+        minor)
+            log "This is MINOR ===> $1"
+            echo "--- so, we will not modify success to 1... it seems case in bash script ends with ;; "
+        ;;
+        patch)
+            echo
+            echo "patch lo ki vachaavu abbaayi";
+        ;;
+        [1234567890].[1234567890].[1234567890][1234567890])
+        ;;
+        *)
+        logError "Invalid version param. Valid params (<newversion> | major | minor | patch)"
+        success=1
+        ;;
+    esac
+
+  return "$success"
+}
+## --------------------------------- ################### -------------------------------------------- ##############
+
+buildLibrary() {
+    log "Building $1 please wait...\n"
+    node --max_old_space_size=6144 ./node_modules/@angular/cli/bin/ng build $1
+    # Build failed
+    if [ $? != 0 ]; then
+        # logError "Failed to build $1"
+        exit 1
+    fi
+
+    log "Packing $1 please wait...\n" &&
+    path="$1"
+    cd "dist/@store/$path" &&    
+    npm pack --silent &&                            # Pack the library
+    cp store-*.tgz ../../../build/ &&               # Copy the packed library to build directory
+    cd ../../../                                    # Move back to home directory  
+}
+
+buildAllPackages() {
+    mkdir build
+    # verifyVersion $1
+    # if [ $? == 1 ]; then
+    #     return 1
+    # fi    
+    librariesList=(categories products testing-library)              # this is how it was in kalgudi-core-libraries
+    librariesList=(categories)                                       # just testing single library
+    # librariesList = (features)                                  # this is how it was in ecommerce-ui-lib
+    for library in ${librariesList[@]}; do
+        log "Please wait while I build $library"
+        updateVersion $library $1
+        if [ $? != 0 ]; then
+            return 1
+        fi
+        buildLibrary $library
+    done
+    return 0
+}
+
+## --------------------------------- ################### -------------------------------------------- ##############
+
+listBuildPackages() {
+    packages = `ls build`           # list all the folders/files inside the build folder
+    echo ''
+    log 'Packages I built successfully\n'
+}
+
+publishPackage() {
+
+}
+
+## --------------------------------- ################### -------------------------------------------- ##############
 
 main() {
     errorMsg="Failed to build all packages, please see build logs";
     successMsg="Successfully build all Kalgudi Core packages";
+    # testUtilityFunctions $1
     
-    cleanBuildDirectory                 # Clean previous builds
-    # buildAllPackages $1                 # Build all latest packages
+    cleanBuildDirectory $1                 # Clean previous builds
+    buildAllPackages $1                 # Build all latest packages
     
-    # if [ $? != 0 ]; then                # In case buildAllPackages failed
-    #     logError $errorMsg
-    #     pushNotification $errorMsg
-    #     return 1
-    # fi
+    if [ $? != 0 ]; then                # In case buildAllPackages failed
+        # logError $errorMsg
+        pushNotification $errorMsg
+        return 1
+    fi
 
     # listBuildPackages                   # List all packages
 
