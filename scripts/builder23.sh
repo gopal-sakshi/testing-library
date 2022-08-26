@@ -30,7 +30,7 @@ updateVersion() {
                                                     # it increments/updates the version in package.json accordingly
                                                     # if you want to verify... directly open categories folder in terminal & do "npm version"
                                                     # how come $2 ===> minorv0.4.0 ====> even though we did not pass any argument
-    log "this is what is argument 2 ===> $2"                                                    
+    # log "this is what is argument 2 ===> $2"                                                    
     npm version $2 &&
     cd ../../
     if [ $? != 0 ]; then
@@ -68,7 +68,7 @@ verifyVersion() {
 ## --------------------------------- ################### -------------------------------------------- ##############
 
 buildLibrary() {
-    log "Building $1 please wait...\n"
+    log "Building $1 please wait doctorey...\n"
     node --max_old_space_size=6144 ./node_modules/@angular/cli/bin/ng build $1
     # Build failed
     if [ $? != 0 ]; then
@@ -76,26 +76,28 @@ buildLibrary() {
         exit 1
     fi
 
-    log "Packing $1 please wait...\n" &&
+    log "Packing $1 please wait nurseeeey...\n" &&
     path="$1"
-    cd "dist/@store/$path" &&    
-    npm pack --silent &&                            # Pack the library
-    cp store-*.tgz ../../../build/ &&               # Copy the packed library to build directory
-    cd ../../../                                    # Move back to home directory  
+    cd "dist/$path" 
+    echo "$PWD"    
+    npm pack --silent                            # Pack the library
+    cp *.tgz ../../build/                   # Copy the packed library to build directory
+    cd ../../                                    # Move back to home directory  
 }
 
 buildAllPackages() {
     mkdir build
+    echo "dir build created"
     # verifyVersion $1
     # if [ $? == 1 ]; then
     #     return 1
     # fi    
     librariesList=(categories products testing-library)              # this is how it was in kalgudi-core-libraries
-    librariesList=(categories)                                       # just testing single library
+    # librariesList=(categories)                                       # just testing single library
     # librariesList = (features)                                  # this is how it was in ecommerce-ui-lib
     for library in ${librariesList[@]}; do
-        log "Please wait while I build $library"
-        updateVersion $library $1
+        # log "Please wait while I build $library"
+        updateVersion $library $1           # Calling this method with 2 arguments
         if [ $? != 0 ]; then
             return 1
         fi
@@ -107,13 +109,42 @@ buildAllPackages() {
 ## --------------------------------- ################### -------------------------------------------- ##############
 
 listBuildPackages() {
-    packages = `ls build`           # list all the folders/files inside the build folder
+    echo "$PWD"
+    # list all the folders/files inside the build folder
+    packages=`ls build`
+    # packages = `ls build`         # if you give spaces.... then it throws error... command not found
     echo ''
     log 'Packages I built successfully\n'
+
+    # Print all packages to console
+    for package in $packages; do
+        publishPackage "$package"
+        # log $package
+    done
+
+    # Print all packages to console
+    for package in $packages; do
+        log $package
+    done
+
+    echo
 }
 
 publishPackage() {
-
+    echo "inside publish package23 ......... \n"
+    success=0    
+    registryUrl="https://registry.npmjs.org"
+    log "Publising $1 to $registryUrl"
+    cd build
+    npm publish "$1" --registry $registryUrl
+    if [ $? == 0 ];then
+        log "Package published successfully"
+    else
+        logError "Unable to publish package"
+        success=1
+    fi
+    cd ../
+    return $success
 }
 
 ## --------------------------------- ################### -------------------------------------------- ##############
@@ -132,7 +163,7 @@ main() {
         return 1
     fi
 
-    # listBuildPackages                   # List all packages
+    listBuildPackages                   # List all packages
 
     # if [ $? != 0 ]; then                # Verify if all libraries listed & packed successfully
     #     logError "$errorMsg"
