@@ -1,0 +1,15 @@
+<h3>Sign In</h3>
+<div class="mb-2">
+    <input placeholder="enter email" type="email" id="email" name="email" #email="ngModel" [(ngModel)]="user.email">
+</div>
+<div>
+    <input placeholder="enter password" [type]="user.showPassword ? 'text' : 'password'" name="password" #password="ngModel" [(ngModel)]="user.password" >
+    <button type="button" (click)="user.showPassword = !user.showPassword">
+        {{ !user.showPassword ? 'show': 'hide'}}
+    </button>
+</div>
+<button type="button" (click)="signIn()" class="btn btn-sm btn-success" [disabled]="loading">
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"
+        *ngIf="loading"></span>
+    Sign in
+</button>

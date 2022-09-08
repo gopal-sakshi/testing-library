@@ -33,6 +33,10 @@ const routes: Routes = [
   {
     path: 'cricket',
     loadChildren: () => import('./modules/cricket/cricket.module').then(m=>m.CricketModule)
+  },
+  {
+    path: 'cognito-auth',
+    loadChildren: () => import('./modules/cognito-auth/cognito-auth.module').then(m=>m.CognitoAuthModule)
   }
 ];
 
