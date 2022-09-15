@@ -1,0 +1,7 @@
+<div>
+    <h4>we will show chelsea players... but this is from lib-two package which is from npmjs</h4>
+    <button (click)="showChelseaPlayers=!showChelseaPlayers">toggle chelsea players</button>
+    <div *ngIf="showChelseaPlayers">
+        <lib-players-chelsea></lib-players-chelsea>
+    </div>    
+</div>

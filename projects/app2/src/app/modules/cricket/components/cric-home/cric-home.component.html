@@ -1,0 +1,14 @@
+<div class="cric-home-container">
+    <button (click)="showSquads=!showSquads">toggle squads</button>
+    <button (click)="showClubs=!showClubs">toggle clubs</button>    
+    <button (click)="showDummy=!showDummy">toggle dummy</button>  
+    <div *ngIf="showSquads">
+        <app-squads></app-squads>
+    </div>
+    <div *ngIf="showClubs">
+        <lib-club-cricket></lib-club-cricket>
+    </div>
+    <div *ngIf="showDummy">
+        <app-dummy></app-dummy>
+    </div>
+</div>

@@ -6,13 +6,17 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { injection_token2, some_injection_token } from './public-api';
 import { RealMadridService } from './services/realMadrid.service';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
 @NgModule({
   declarations: [
     Notification12Component,
-    Notification13Component
+    Notification13Component,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +32,9 @@ import { RealMadridService } from './services/realMadrid.service';
       2. If 'lib-notification12' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
       3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.
     */                                    
-    Notification13Component
+    Notification13Component,
+    HeaderComponent,
+    FooterComponent
   ],
   providers: [
     RealMadridService

@@ -2,11 +2,14 @@
   "name": "testing-lib",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
     "start": "ng serve --port 9997",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "serve:app1": "ng serve --project app1",
+    "build:app1": "ng build --prod --project app1 --statsJson",
+    "analyse:app1": "webpack-bundle-analyzer dist/app1/stats-es2015.json",
+    "bundle:consumer": "source-map-explorer dist/app1/*es2015*.js",
+    "serve:app2": "ng serve --project app2"
   },
   "private": true,
   "dependencies": {

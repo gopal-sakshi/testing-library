@@ -1,0 +1,23 @@
+<div class="app-container">
+  <div class="header-section">    
+    <lib-header>Header of APP II</lib-header>
+  </div>
+  <div style="margin-top: 60px;" class="navigation-links" fxLayout="row" fxLayoutGap="20px">
+    <a style="cursor:pointer" (click)="navigateToAppHome()"> Go Backeey </a>
+    <a [routerLink]="['home']"> Home </a>
+    <a [routerLink]="['animals']"> Animals </a>
+    <a [routerLink]="['football']"> Football </a>
+    <a [routerLink]="['cricket']"> cricket </a>
+    <a [routerLink]="['cognito-auth']"> cognito-auth </a>
+  </div>
+
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="footer-section">
+    <lib-footer></lib-footer>
+  </div>
+</div>
+
+<!-- <div fxLayout="column" fxLayoutGap="20px">
+</div> -->

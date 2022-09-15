@@ -1,0 +1,18 @@
+.test1-container {
+    max-width: fit-content;
+    min-width: 400px;
+    .notification12-component {
+        border: 1px solid rgb(190, 153, 153);
+        padding:10px;
+    }
+    .notification13-component {
+        border: 1px solid rgb(94, 184, 94);
+        padding:10px;
+    }
+    .lib-testing-library {
+        border: 1px solid rgb(63, 78, 63);
+        padding:10px;
+    }
+    border: 1px solid rgb(121, 100, 134);
+    padding:10px;
+}

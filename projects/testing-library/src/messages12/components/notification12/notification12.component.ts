@@ -21,7 +21,7 @@ export class Notification12Component implements OnInit {
   ngOnChanges() {
     if(this.message) {
       console.log(this.message);
-      const snackbarRef = this._snackBar.open(this.message, 'info', {
+      const snackbarRef = this._snackBar.open(this.message, 'dismiss', {
         //duration: 10000,
         panelClass: 'library-snackbar-class',
         horizontalPosition: 'left',

@@ -1,0 +1,14 @@
+<div class="app-categories-container">
+    <div class="user-buttons">
+        <button (click)="showCategoryList = !showCategoryList">category list</button>
+        <button (click)="showCategoryFullView = !showCategoryFullView">category full view</button>
+    </div>
+    <div class="child-components">
+        <div *ngIf="showCategoryList">
+            <lib-categories-list></lib-categories-list>
+        </div>
+        <div *ngIf="showCategoryFullView">
+            <lib-category-full-view [categoryName]="'Magazines'"></lib-category-full-view>
+        </div>
+    </div>
+</div>

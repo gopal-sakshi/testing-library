@@ -1,0 +1,24 @@
+<div class="home11-container" fxLayout="row" fxLayoutGap="20px">
+  
+  <div>
+    <button (click)="showImageUpload=!showImageUpload">image upload</button>
+    <button (click)="showStaticText=!showStaticText">static text</button>    
+    <button (click)="showForwardRef12=!showForwardRef12">forward ref12</button>
+  </div>
+
+  <div *ngIf="showImageUpload">
+    <app-image-upload></app-image-upload>    
+  </div>
+
+  <div *ngIf="showStaticText" class="static-text" fxLayout="column">
+    <div class="some-element"> something something song is NVNV </div>
+    <div class="some-element"> baahubali hero is prabhas </div>
+    <div class="some-element"> nayanthara is from kerala </div>
+    <div class="some-element"> ours is tollywood </div>
+  </div>
+
+  <div *ngIf="showForwardRef12" class="another-component">    
+    <app-forward-ref12></app-forward-ref12>
+  </div>
+
+</div>
