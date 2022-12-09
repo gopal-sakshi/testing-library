@@ -36,7 +36,7 @@ const footballRoutes:Routes = [
     libFootballModule,
     MatButtonModule,
     Messages12Module.forChild(config26.notification),
-    ChelseaModule     // this is from lib-two (which is a package from npmjs)
+    ChelseaModule     // this is from gopal612-lib-two (which is a package from npmjs)
   ]
 })
 export class FootballModule { }
