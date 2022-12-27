@@ -9,6 +9,7 @@
 
 # dependencies
 /node_modules
+/testing-library-23
 /projects/testing-library/node_modules
 # Read these
 #     https://stackoverflow.com/questions/13668097/how-to-replace-npm-node-module-folder-with-another-folder
