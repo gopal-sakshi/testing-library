@@ -5,12 +5,12 @@
     "start": "ng serve --port 9997",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "serve:app1": "ng serve --project app1",
+    "serve:app1": "ng serve --project app1 --port 9997",
     "build:app1": "ng build --prod --project app1 --statsJson",
     "sourceMap:app1": "ng build --source-map=true",
     "analyse:app1": "webpack-bundle-analyzer dist/app1/stats.json",
     "bundle:app1": "source-map-explorer dist/app1/*.js",
-    "serve:app2": "ng serve --project app2"
+    "serve:app2": "ng serve --project app2 --port 9996"
   },
   "private": true,
   "dependencies": {

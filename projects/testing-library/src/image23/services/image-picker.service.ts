@@ -8,8 +8,7 @@ export class ImagePickerService {
 
     constructor(private dialogsService:DialogsService) { }
 
-    showImageUpload(details:any,config:any): Observable<any> {
-    
+    showImageUpload(details:any,config:any): Observable<any> {    
         return this.openImageUploadDialog(details, config);
     }
 

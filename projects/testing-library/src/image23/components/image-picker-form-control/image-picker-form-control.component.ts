@@ -19,19 +19,14 @@ const FORM_CONTROL_ACCESSOR = {
 })
 export class ImagePickerFormControlComponent extends ImagePickerFormControl implements OnInit {
 
-  constructor(
-    private imagePickerService: ImagePickerService
-  ) { 
+  constructor(private imagePickerService: ImagePickerService) { 
     super();
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   protected showPickerDialog(dialogDetails:any, dialogConfig: MatDialogConfig): Observable<any> {
-
-    return this.imagePickerService.showImageUpload(dialogDetails, dialogConfig)
-      .pipe();
-    }
+    return this.imagePickerService.showImageUpload(dialogDetails, dialogConfig).pipe();
+  }
 
 }

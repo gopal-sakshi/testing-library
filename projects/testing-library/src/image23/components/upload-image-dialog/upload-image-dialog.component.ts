@@ -9,22 +9,17 @@ import { UploadImageDialog } from '../../classes/upload-image-dialog';
 })
 export class UploadImageDialogComponent extends UploadImageDialog<UploadImageDialogComponent> implements OnInit, OnChanges {
 
-  constructor(
-    public dialogRef: MatDialogRef<UploadImageDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public dialogData:any
-  ) { 
-    super(dialogRef, dialogData)
+  constructor(public dialogRef: MatDialogRef<UploadImageDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public dialogData:any) { 
+      super(dialogRef, dialogData);
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   ngOnChanges() { }
 
-  ok(): void {
-    
-  }
-  cancel(): void {
+  ok(): void {}
 
-  }
+  cancel(): void {}
+  
 }

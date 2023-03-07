@@ -78,13 +78,8 @@
     "app1": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss",
-          "skipTests": true
-        },
-        "@schematics/angular:application": {
-          "strict": true
-        }
+        "@schematics/angular:component": { "style": "scss", "skipTests": true },
+        "@schematics/angular:application": { "strict": true }
       },
       "root": "projects/app1",
       "sourceRoot": "projects/app1/src",
@@ -92,7 +87,8 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "options": {            
+          "options": {
+            "outputPath": "dist/app1",
             "index": "projects/app1/src/index.html",
             "main": "projects/app1/src/main.ts",
             "polyfills": "projects/app1/src/polyfills.ts",
